@@ -38,8 +38,10 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - solver
+    - text
     - lens
     - containers
+    - attoparsec
 
 tests:
   solver-test:

@@ -22,3 +22,4 @@ collectPureLits clauses = let lits = clauses >>= id
                             filter (\lit -> not ((invert lit) `elem` lits)) lits
 
 
+

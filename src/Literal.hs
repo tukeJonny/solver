@@ -4,6 +4,7 @@ module Literal (
   , invert
   , isOpposite
   , getTrue, getFalse
+  , getLitName
     ) where
 
 import Control.Lens
@@ -22,6 +23,9 @@ invert :: Lit -> Lit
 invert l = let inverted = not (l^.inv)
            in
               l&inv.~inverted
+
+getLitName :: Lit -> Int
+getLitName l = abs (l^.name)
 
 isOpposite :: Lit -> Lit -> Bool
 isOpposite l1 l2 = let nameMatched = (l1^.name) == (l2^.name)
