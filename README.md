@@ -44,7 +44,7 @@ $ stack run ./examples/test4-invalid.cnf
 solver-exe: NumLitsError {gotLits = 2}
 ```
 
-If given number of literals is wrong, solver prints NumClausesError
+If given number of clauses is wrong, solver prints NumClausesError
 
 ```
 $ stack run ./examples/test5-invalid.cnf
