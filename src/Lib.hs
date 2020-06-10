@@ -10,6 +10,7 @@ import System.IO
 import Data.List
 import Data.Ord (comparing)
 import qualified Data.Text as T
+import qualified Data.Text.IO as TIO
 import Text.Printf (printf)
 import Data.Map.Strict (Map)
 import qualified Data.Map.Strict as M
@@ -46,12 +47,13 @@ prettifyAssignments assignments =
                                                 True -> printf "%d" name
                                                 otherwise -> printf "-%d" name) sortedAssignList
     in
-        T.concat ["v ", (T.intercalate " " $ map T.pack assignStrings)]
+        T.concat ["v ", (T.intercalate " " $ map T.pack assignStrings), " 0"]
 
 printResult :: Assignments -> IO ()
 printResult a =
     case a of
-        (Just assignments) -> print (mconcat [ "s SATISFIABLE"
+        (Just assignments) -> TIO.putStrLn (mconcat [ "s SATISFIABLE"
+                                             , "\n"
                                              , (prettifyAssignments assignments)
                                              , "\n"])
         Nothing            -> putStrLn "s UNSATISFIABLE"

@@ -23,6 +23,8 @@ dependencies:
 - base >= 4.7 && < 5
 - lens
 - containers
+- attoparsec
+- text
 - hspec
 
 library:
@@ -42,6 +44,7 @@ executables:
     - lens
     - containers
     - attoparsec
+    - text
 
 tests:
   solver-test:
